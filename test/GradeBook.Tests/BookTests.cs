@@ -7,7 +7,7 @@ namespace GradeBook.Tests
     public class BookTests
     {
         [Fact]
-        public void Test1()
+        public void BookCalculatesAnAverageGrade()
         {
 
             /*Typical Stucture */
@@ -27,7 +27,7 @@ namespace GradeBook.Tests
             // assert
             // Assert.Equal(77, min);
             // Assert.Equal(90.5, max);
-            Assert.Equal(85.6, result.Average);
+
             Assert.Equal(90.5, result.High);
             Assert.Equal(77.3, result.Low);
         }
