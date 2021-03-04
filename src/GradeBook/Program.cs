@@ -9,10 +9,36 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book1 = new Book("Ryan's GradeBook");
-            book1.AddGrade(98.1);
-            book1.AddGrade(89.2);
-            book1.AddGrade(93.2);
-            book1.AddGrade(79.4);
+  
+            Console.WriteLine("Enter a grade or Press 'Q' to quit");
+            while (true) 
+            {
+                var input = Console.ReadLine();
+                if (input == "q")
+                {
+                    break;
+                } 
+                
+                try 
+                {
+                    var grade = double.Parse(input);
+                    book1.AddGrade(grade);
+                }
+                catch (ArgumentException ex) 
+                {
+                    Console.WriteLine(ex.Message);
+                    
+                }
+                catch (FormatException ex) 
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Console.WriteLine("**");
+                }
+            }
+
 
             // book1.GetMin());
             // book1.GetMax();
@@ -25,6 +51,7 @@ namespace GradeBook
             Console.WriteLine($"The lowest grade is {stats.Low}");
             Console.WriteLine($"The highest grade is {stats.High}");
             Console.WriteLine($"The average grade is {stats.Average}");
+            Console.WriteLine($"The letter grade is {stats.Letter}");
             
             }
         }
